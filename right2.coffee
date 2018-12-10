@@ -1,4 +1,4 @@
-command: "bash Pecan/scripts/stats"
+command: "bash pecan-redux/scripts/stats"
 
 refreshFrequency: '5s'
 

@@ -1,4 +1,4 @@
-export const command = "bash ./pecan/scripts/chunkwm"
+export const command = "bash ./pecan-redux/scripts/chunkwm"
 
 export const refreshFrequency = 1000
 

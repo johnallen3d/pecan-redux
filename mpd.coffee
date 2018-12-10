@@ -1,4 +1,4 @@
-command: "sh ./pecan/scripts/mpd"
+command: "sh ./pecan-redux/scripts/mpd"
 
 refreshFrequency: '1s'
 
