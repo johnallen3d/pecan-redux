@@ -1,0 +1,18 @@
+#! /usr/bin/env bash
+
+bluetooth_data=$(system_profiler SPBluetoothDataType)
+
+start_line=$(
+  echo "${bluetooth_data}" \
+    | grep -n "John’s AirPods:" \
+    | awk -F ":" '{print $1}'
+  )
+
+end_line=$((start_line + 10))
+
+echo "${bluetooth_data}" \
+  | sed "${start_line},${end_line}!d" \
+  | grep "Connected:" \
+  | awk -F ":" '{print $2}' \
+  | tr -d '[:space:]' \
+  | tr '[:upper:]' '[:lower:]'

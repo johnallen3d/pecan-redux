@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "{
+  \"batteryPercentage\": \"$(pmset -g batt | grep -o '[0-9]*%' | head -c 3)\",
+  \"chargingStatus\": \"$(pmset -g batt | grep "'.*'" | sed "s/'//g" | cut -c 18-19)\",
+  \"cpuPercentage\": \"$(ps -axC -o %cpu | awk '{s+=$1} END {print s}')\",
+  \"memoryPercentage\": \"$(ps -A -o %mem | awk '{s+=$1} END {print "" s}')\",
+  \"volumePercentage\": \"$(osascript -e 'set ovol to output volume of (get volume settings)')\",
+  \"mutedStatus\": \"$(osascript -e 'output muted of (get volume settings)')\",
+  \"airpodsConnected\": \"$(./pecan/scripts/airpods)\"
+}"

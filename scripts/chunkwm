@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "{
+  \"app\": \"$(./pecan/scripts/current_app)\",
+  \"layout\": \"$(/usr/local/bin/chunkc tiling::query -d mode)\"
+}"
